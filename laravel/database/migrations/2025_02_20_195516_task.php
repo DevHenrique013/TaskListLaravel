@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('task', function(Blueprint $table){
+            $table->id('id');
+            $table->string('nome', 30);
+            $table->string('descricao', 300);
+            $table->string('tag', 30);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('task');
     }
 };
